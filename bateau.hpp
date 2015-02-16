@@ -1,5 +1,5 @@
-#ifndef BATEAU_H
-#define BATEAU_H
+#ifndef BATEAU_HPP
+#define BATEAU_HPP
 
 class bateau{
 
@@ -16,4 +16,4 @@ class bateau{
 
 };
 
-#endif // BATEAU_H
+#endif // BATEAU_HPP
