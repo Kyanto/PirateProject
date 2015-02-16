@@ -1,5 +1,5 @@
-#include "interface.h"
-#include "bateau.h"
+#include "interface.hpp"
+#include "bateau.hpp"
 #include <iostream>
 
 using namespace std;
