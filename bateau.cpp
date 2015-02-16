@@ -1,4 +1,4 @@
-#include "bateau.h"
+#include "bateau.hpp"
 
 bateau::bateau(int x, int y) : coord_x(x), coord_y(y), level(1){}
 
