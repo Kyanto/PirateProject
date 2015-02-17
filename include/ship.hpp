@@ -8,7 +8,7 @@
 class ship{
     public :
         ship(int x, int y) ;
-        int move(int x, int y) ;
+        bool move(int x, int y) ;
         int getX() const ;
         int getY() const ;
 

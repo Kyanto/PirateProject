@@ -67,6 +67,7 @@ int main(){
                         {0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0},
                     };
     bool play = false ;
+    int actual=0 ;
 
     //Création de la fenetre de jeu, chargement de la carte
     sf::RenderWindow window(sf::VideoMode(960, 640), "The Pirate Project");
@@ -87,8 +88,8 @@ int main(){
     player players[4] = {init(0), init(1), init(2), init(3)} ;
 
     //Boucle générale
-    while (window.isOpen())
-    {
+    while (window.isOpen()){
+
         //Boucle principale
         sf::Event event;
         while (window.pollEvent(event))
@@ -100,7 +101,22 @@ int main(){
                 break ;
             //Lorsque l'on clique :D
             case sf::Event::MouseButtonReleased :
-
+                if(event.mouseButton.button == sf::Mouse::Left){
+                    if(!play){
+                        t_content.loadFromFile("img/map.png") ;
+                        s_content.setTexture(t_content) ;
+                        play = true ;
+                    }else{
+                        if(players[actual].getMove()){
+                            players[actual].move_ship(event.mouseButton.x/20, event.mouseButton.y/20) ;
+                            //DEBUG AHERAGEFGAZE
+                            if(!players[actual].getMove()){
+                                actual = (actual+1)%4 ;
+                                players[actual].ucanmove() ;
+                            }
+                        }
+                    }
+                }
                 break ;
             default :
                 break ;

@@ -8,14 +8,16 @@
 class player{
     public :
         player(int x, int y, int i) ;
-        int move_ship(int x, int y) ;
+        void move_ship(int x, int y) ;
         int getSX() const ;
         int getSY() const ;
         sf::Sprite getSprite() const ;
+        bool getMove() const ;
+        void ucanmove() ;
 
     private :
         ship m_ship ;
-        int m_gold ;
+        bool m_move ;
         sf::Texture m_texture ;
         sf::Sprite m_sprite ;
 };
