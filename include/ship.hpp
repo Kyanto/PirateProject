@@ -2,6 +2,8 @@
 #define SHIP_HPP
 
 #include <math.h>
+#include "canon.hpp"
+#include "voile.hpp"
 
 class ship{
     public :
@@ -14,6 +16,13 @@ class ship{
         int m_x ;
         int m_y ;
         int m_lvl ;
+        int m_gold ;
+        int m_att ;
+        int m_speed ;
+        int m_hp ;
+        int m_relique ;
+        //canon* m_canons ;
+        //voile* m_voiles ;
 };
 
 #endif // SHIP_HPP
