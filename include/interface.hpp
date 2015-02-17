@@ -3,6 +3,9 @@
 
 #include <SFML/Graphics.hpp>
 
+#include "player.hpp"
+#include "ship.hpp"
+
 //Fonction principale : boucle de jeu
 void game() ;
 

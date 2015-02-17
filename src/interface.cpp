@@ -50,6 +50,33 @@ void game(){
                         {0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0},
                     };
 
+    //Initialisation des 4 joueurs
+    player Players[4] ;
+
+    Players[0] = new player(0,0) ;
+    sf::Texture t_player1 ;
+    t_players1.loadFromFile("img/bat1.png") ;
+    sf::Sprite s_player1 ;
+    s_player1.setTexture(t_player1) ;
+
+    Players[1] = new player(31,0) ;
+    sf::Texture t_player2 ;
+    t_players1.loadFromFile("img/bat2.png") ;
+    sf::Sprite s_player2 ;
+    s_player1.setTexture(t_player2) ;
+
+    Players[2] = new player(0,31) ;
+    sf::Texture t_player1 ;
+    t_players1.loadFromFile("img/bat1.png") ;
+    sf::Sprite s_player1 ;
+    s_player1.setTexture(t_player1) ;
+
+    Players[3] = new player(31,31) ;
+    sf::Texture t_player1 ;
+    t_players1.loadFromFile("img/bat1.png") ;
+    sf::Sprite s_player1 ;
+    s_player1.setTexture(t_player1) ;
+
     //Création de la fenetre de jeu, chargement de la carte
     sf::RenderWindow window(sf::VideoMode(960, 640), "The Pirate Project");
 
