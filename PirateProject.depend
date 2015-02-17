@@ -4,7 +4,7 @@
 
 1424158801 c:\users\adrien\desktop\projets_c\pirateproject\include\bateau.hpp
 
-1424188391 source:c:\users\adrien\desktop\projets_c\pirateproject\src\interface.cpp
+1424193564 source:c:\users\adrien\desktop\projets_c\pirateproject\src\interface.cpp
 	"interface.hpp"
 	<iostream>
 
@@ -374,4 +374,10 @@
 
 1424192589 c:\users\adrien\desktop\projets_c\pirateproject\include\ship.hpp
 	<math.h>
+
+1424193491 source:c:\users\adrien\desktop\projets_c\pirateproject\src\player.cpp
+	"player.hpp"
+
+1424192024 source:c:\users\adrien\desktop\projets_c\pirateproject\src\ship.cpp
+	"ship.hpp"
 
