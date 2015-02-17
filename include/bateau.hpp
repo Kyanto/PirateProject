@@ -1,6 +1,7 @@
 #ifndef BATEAU_HPP
 #define BATEAU_HPP
 
+//La classe "joueur" symbolisé par son pion
 class bateau{
 
     public :

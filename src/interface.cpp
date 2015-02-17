@@ -1,5 +1,4 @@
 #include "interface.hpp"
-#include "bateau.hpp"
 #include <iostream>
 
 using namespace std;
@@ -51,22 +50,29 @@ void game(){
                         {0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0},
                     };
 
-    cout << "Bonjour World" ;
+    //Création de la fenetre de jeu, chargement de la carte
+    sf::RenderWindow window(sf::VideoMode(960, 640), "The Pirate Project");
 
-    sf::RenderWindow window(sf::VideoMode(960, 640), "The Pirate Bay Pré-Alpha");
-    sf::Texture texture ;
-    texture.loadFromFile("Images/map.png") ;
-    sf::Sprite sprite ;
-    sprite.setTexture(texture) ;
+    sf::Texture t_map ;
+    t_map.loadFromFile("img/map.png") ;
+    sf::Sprite s_map ;
+    s_map.setTexture(t_map) ;
 
-    bateau ship1(0,0) ;
+    sf::Texture t_menu ;
+    t_menu.loadFromFile("img/menu.png") ;
+    sf::Sprite s_menu ;
+    s_menu.setTexture(t_menu) ;
+    s_menu.setPosition(640,0) ;
 
+    //Boucle générale
     while (window.isOpen())
     {
+        //Boucle principale
         sf::Event event;
         while (window.pollEvent(event))
         {
             switch(event.type){
+                //Fermeture du jeu
             case sf::Event::Closed :
                 window.close();
                 break ;
@@ -75,8 +81,10 @@ void game(){
             }
         }
 
+        //Rafraichissement de l'écran
         window.clear();
-        window.draw(sprite);
+        window.draw(s_map);
+        window.draw(s_menu);
         window.display();
     }
 }

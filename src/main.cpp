@@ -1,8 +1,6 @@
-#include <iostream>
+#include "interface.hpp"
 
 int main (void)
 {
-    std::cout << "Hello world";
-
-    return 0;
+    game() ;
 }
