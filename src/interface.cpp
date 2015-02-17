@@ -51,31 +51,31 @@ void game(){
                     };
 
     //Initialisation des 4 joueurs
-    player Players[4] ;
+    player* Players[4] ;
 
     Players[0] = new player(0,0) ;
     sf::Texture t_player1 ;
-    t_players1.loadFromFile("img/bat1.png") ;
+    t_player1.loadFromFile("img/bat1.png") ;
     sf::Sprite s_player1 ;
     s_player1.setTexture(t_player1) ;
 
     Players[1] = new player(31,0) ;
     sf::Texture t_player2 ;
-    t_players1.loadFromFile("img/bat2.png") ;
+    t_player2.loadFromFile("img/bat2.png") ;
     sf::Sprite s_player2 ;
-    s_player1.setTexture(t_player2) ;
+    s_player2.setTexture(t_player2) ;
 
     Players[2] = new player(0,31) ;
-    sf::Texture t_player1 ;
-    t_players1.loadFromFile("img/bat1.png") ;
-    sf::Sprite s_player1 ;
-    s_player1.setTexture(t_player1) ;
+    sf::Texture t_player3 ;
+    t_player3.loadFromFile("img/bat3.png") ;
+    sf::Sprite s_player3 ;
+    s_player3.setTexture(t_player3) ;
 
     Players[3] = new player(31,31) ;
-    sf::Texture t_player1 ;
-    t_players1.loadFromFile("img/bat1.png") ;
-    sf::Sprite s_player1 ;
-    s_player1.setTexture(t_player1) ;
+    sf::Texture t_player4 ;
+    t_player4.loadFromFile("img/bat4.png") ;
+    sf::Sprite s_player4 ;
+    s_player4.setTexture(t_player4) ;
 
     //Création de la fenetre de jeu, chargement de la carte
     sf::RenderWindow window(sf::VideoMode(960, 640), "The Pirate Project");
@@ -102,6 +102,10 @@ void game(){
                 //Fermeture du jeu
             case sf::Event::Closed :
                 window.close();
+                break ;
+            //Lorsque l'on clique :D
+            case sf::Event::MouseButtonReleased :
+
                 break ;
             default :
                 break ;

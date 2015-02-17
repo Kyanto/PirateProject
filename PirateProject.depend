@@ -8,8 +8,10 @@
 	"interface.hpp"
 	<iostream>
 
-1424158776 c:\users\adrien\desktop\projets_c\pirateproject\include\interface.hpp
+1424193119 c:\users\adrien\desktop\projets_c\pirateproject\include\interface.hpp
 	<SFML/Graphics.hpp>
+	"player.hpp"
+	"ship.hpp"
 
 1424157778 c:\users\adrien\desktop\projets_c\pirateproject\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -366,4 +368,10 @@
 
 1424162262 source:c:\users\adrien\desktop\projets_c\pirateproject\src\main.cpp
 	"interface.hpp"
+
+1424193502 c:\users\adrien\desktop\projets_c\pirateproject\include\player.hpp
+	"ship.hpp"
+
+1424192589 c:\users\adrien\desktop\projets_c\pirateproject\include\ship.hpp
+	<math.h>
 
