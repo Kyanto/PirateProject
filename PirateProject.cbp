@@ -44,14 +44,18 @@
 			<Add option="-Wall" />
 		</Compiler>
 		<Unit filename="include/canon.hpp" />
+		<Unit filename="include/cible.hpp" />
 		<Unit filename="include/main.hpp" />
 		<Unit filename="include/player.hpp" />
 		<Unit filename="include/ship.hpp" />
+		<Unit filename="include/sidebar.hpp" />
 		<Unit filename="include/voile.hpp" />
 		<Unit filename="src/canon.cpp" />
+		<Unit filename="src/cible.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/player.cpp" />
 		<Unit filename="src/ship.cpp" />
+		<Unit filename="src/sidebar.cpp" />
 		<Unit filename="src/voile.cpp" />
 		<Extensions>
 			<code_completion />

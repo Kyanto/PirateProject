@@ -6,6 +6,7 @@
 
 #include "player.hpp"
 #include "ship.hpp"
+#include "cible.hpp"
 
 using namespace std;
 

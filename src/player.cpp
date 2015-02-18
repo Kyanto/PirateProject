@@ -10,10 +10,10 @@ player::player(int x, int y, int i) : m_ship(x, y), m_move(true) {
     m_sprite.setPosition(x*20, y*20) ;
 }
 
-void player::move_ship(int x, int y){
-    m_move = m_ship.move(x, y) ;
-
-    m_sprite.setPosition(m_ship.getX()*20, m_ship.getY()*20) ;
+void player::move_ship(cible cibled){
+    m_move = m_ship.move(cibled.getX(), cibled.getY()) ;
+    //Si on a bougé, on actualise la position du sprite BATEAU
+    if(!m_move) m_sprite.setPosition(m_ship.getX()*20, m_ship.getY()*20) ;
 }
 
 int player::getSX() const{

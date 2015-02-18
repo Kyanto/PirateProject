@@ -4,11 +4,12 @@
 #include <SFML/Graphics.hpp>
 
 #include "ship.hpp"
+#include "cible.hpp"
 
 class player{
     public :
         player(int x, int y, int i) ;
-        void move_ship(int x, int y) ;
+        void move_ship(cible cibled) ;
         int getSX() const ;
         int getSY() const ;
         sf::Sprite getSprite() const ;

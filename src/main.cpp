@@ -41,14 +41,14 @@ int main(){
                         {0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0},
                         {0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,0},
                         {0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,2,0,0,0,0,0,0,0,0,5,0,0,0,0},
-                        {0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,0,0,0,0,0,0,0,0},
-                        {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,3,3,0,0,0,0,0,0,0,0},
+                        {0,0,5,0,0,0,0,0,3,3,0,0,0,0,0,0,0,0,0,0,0,0,3,3,0,0,0,0,0,0,0,0},
+                        {1,0,0,0,0,0,0,0,3,3,0,0,0,0,0,0,0,0,0,0,0,0,3,3,0,0,0,0,0,0,0,0},
                         {0,0,0,0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,5},
                         {0,0,0,0,5,0,0,0,0,0,0,4,4,4,0,6,0,0,0,4,4,4,0,0,0,0,0,0,1,0,0,0},
                         {0,0,0,0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0,0},
-                        {0,0,0,0,0,0,2,2,0,0,5,0,0,0,0,0,0,0,0,4,4,4,0,0,0,0,0,0,0,0,0,0},
+                        {0,0,0,0,0,0,2,2,0,0,5,0,0,0,0,0,0,0,0,4,4,4,0,0,0,5,0,0,0,0,0,0},
                         {0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0,0},
-                        {0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,0,0,0,6,0,0,0,0,0,0,0,0,0,2,0},
+                        {0,2,0,0,0,0,0,0,0,0,0,0,0,0,0,9,9,0,0,0,6,0,0,0,5,0,0,0,0,0,2,0},
                         {0,2,0,0,0,0,0,5,0,0,0,6,0,0,0,9,9,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0},
                         {0,0,0,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,5,0,0},
                         {0,0,0,0,0,0,5,0,0,0,4,4,4,0,0,0,0,0,0,0,0,5,0,0,2,2,0,0,0,0,0,0},
@@ -69,6 +69,9 @@ int main(){
     bool play = false ;
     int actual=0 ;
 
+    sidebar Sidebar ;
+    cible cibled(&Sidebar) ;
+
     //Création de la fenetre de jeu, chargement de la carte
     sf::RenderWindow window(sf::VideoMode(960, 640), "The Pirate Project");
 
@@ -77,25 +80,6 @@ int main(){
     t_content.loadFromFile("img/menu.png") ;
     sf::Sprite s_content ;
     s_content.setTexture(t_content) ;
-
-    //Barre latérale
-    sf::Texture t_sidebar ;
-    t_sidebar.loadFromFile("img/sidebar.png") ;
-    sf::Sprite s_sidebar ;
-    s_sidebar.setTexture(t_sidebar) ;
-    s_sidebar.setPosition(640,0) ;
-        //Joueur
-    sf::Texture t_sidebar_joueur ;
-    t_sidebar_joueur.loadFromFile("img/bat1.png") ;
-    sf::Sprite s_sidebar_joueur ;
-    s_sidebar_joueur.setTexture(t_sidebar_joueur) ;
-    s_sidebar_joueur.setPosition(780,147) ;
-        //Description des cases
-    sf::Texture t_sidecase ;
-    t_sidecase.loadFromFile("img/mer.png") ;
-    sf::Sprite s_sidecase ;
-    s_sidecase.setTexture(t_sidecase) ;
-    s_sidecase.setPosition(640,276) ;
 
     //Initialisation des 4 joueurs
     player players[4] = {init(0), init(1), init(2), init(3)} ;
@@ -120,23 +104,19 @@ int main(){
                         s_content.setTexture(t_content) ;
                         play = true ;
                     }else{
-
-                        // A CHANGER !!
-                        // APPUYER SUR "VOYAGER" POUR VOYAGER
-                        // CHANGER LA DESCRIPTION (TEXTURE) QUAND ON CLIQUE SUR UNE CASE
-
-                        //Si déplacement
-                        if(players[actual].getMove()){
-                            if(event.mouseButton.x/20 < 32) players[actual].move_ship(event.mouseButton.x/20, event.mouseButton.y/20) ;
+                        //Mise à jour de l'objet "case ciblée"
+                        if(event.mouseButton.x/20 < 32){
+                            cibled.change(map[event.mouseButton.y/20][event.mouseButton.x/20], event.mouseButton.x/20, event.mouseButton.y/20) ;
+                        }
+                        //Si déplacement Coordonnées bouton voyage : 106/207-187/241
+                        if(players[actual].getMove() && event.mouseButton.x>746 && event.mouseButton.x<827 && event.mouseButton.y>207 && event.mouseButton.y<241){
+                            players[actual].move_ship(cibled) ;
                         }
                         //Si fin du tour
                         if(event.mouseButton.x > 640 && event.mouseButton.y > 590){
                                 actual = (actual+1)%4 ;
                                 players[actual].ucanmove() ;
-                                if(actual==0) t_sidebar_joueur.loadFromFile("img/bat1.png") ;
-                                if(actual==1) t_sidebar_joueur.loadFromFile("img/bat2.png") ;
-                                if(actual==2) t_sidebar_joueur.loadFromFile("img/bat3.png") ;
-                                if(actual==3) t_sidebar_joueur.loadFromFile("img/bat4.png") ;
+                                Sidebar.changeShip(actual) ;
                         }
                     }
                 }
@@ -149,13 +129,14 @@ int main(){
         //Rafraichissement de l'écran
         window.clear();
         window.draw(s_content);
-        window.draw(s_sidebar);
+        window.draw(Sidebar.getSprite('M'));
         if(play){
             for(int i=0; i<4; i++){
                 window.draw(players[i].getSprite()) ;
             }
-            window.draw(s_sidebar_joueur) ;
-            window.draw(s_sidecase) ;
+            window.draw(Sidebar.getSprite('P')) ;
+            window.draw(Sidebar.getSprite('C')) ;
+            window.draw(cibled.getSprite()) ;
         }
         window.display();
     }

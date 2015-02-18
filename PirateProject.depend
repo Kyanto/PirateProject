@@ -366,19 +366,20 @@
 	<string>
 	<vector>
 
-1424282761 source:c:\users\adrien\desktop\projets_c\pirateproject\src\main.cpp
+1424300489 source:c:\users\adrien\desktop\projets_c\pirateproject\src\main.cpp
 	"main.hpp"
 
-1424203565 c:\users\adrien\desktop\projets_c\pirateproject\include\player.hpp
+1424295806 c:\users\adrien\desktop\projets_c\pirateproject\include\player.hpp
 	<SFML/Graphics.hpp>
 	"ship.hpp"
+	"cible.hpp"
 
 1424205448 c:\users\adrien\desktop\projets_c\pirateproject\include\ship.hpp
 	<math.h>
 	"canon.hpp"
 	"voile.hpp"
 
-1424203587 source:c:\users\adrien\desktop\projets_c\pirateproject\src\player.cpp
+1424295802 source:c:\users\adrien\desktop\projets_c\pirateproject\src\player.cpp
 	"player.hpp"
 
 1424284147 source:c:\users\adrien\desktop\projets_c\pirateproject\src\ship.cpp
@@ -386,15 +387,29 @@
 
 1424198994 source:c:\users\adrien\desktop\projets_c\pirateproject\src\canon.cpp
 
-1424206088 c:\users\adrien\desktop\projets_c\pirateproject\include\main.hpp
+1424294383 c:\users\adrien\desktop\projets_c\pirateproject\include\main.hpp
 	<iostream>
 	<SFML/Graphics.hpp>
 	"player.hpp"
 	"ship.hpp"
+	"cible.hpp"
 
 1424199205 c:\users\adrien\desktop\projets_c\pirateproject\include\canon.hpp
 
 1424199223 c:\users\adrien\desktop\projets_c\pirateproject\include\voile.hpp
 
 1424199022 source:c:\users\adrien\desktop\projets_c\pirateproject\src\voile.cpp
+
+1424300469 source:c:\users\adrien\desktop\projets_c\pirateproject\src\cible.cpp
+	"cible.hpp"
+
+1424300452 c:\users\adrien\desktop\projets_c\pirateproject\include\cible.hpp
+	"sidebar.hpp"
+	<SFML/Graphics.hpp>
+
+1424297741 c:\users\adrien\desktop\projets_c\pirateproject\include\sidebar.hpp
+	<SFML/Graphics.hpp>
+
+1424299585 source:c:\users\adrien\desktop\projets_c\pirateproject\src\sidebar.cpp
+	"sidebar.hpp"
 
