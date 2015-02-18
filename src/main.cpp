@@ -89,7 +89,7 @@ int main(){
     t_sidebar_joueur.loadFromFile("img/bat1.png") ;
     sf::Sprite s_sidebar_joueur ;
     s_sidebar_joueur.setTexture(t_sidebar_joueur) ;
-    s_sidebar_joueur.setPosition(790,185) ;
+    s_sidebar_joueur.setPosition(780,147) ;
         //Description des cases
     sf::Texture t_sidecase ;
     t_sidecase.loadFromFile("img/mer.png") ;
@@ -120,17 +120,23 @@ int main(){
                         s_content.setTexture(t_content) ;
                         play = true ;
                     }else{
+
+                        // A CHANGER !!
+                        // APPUYER SUR "VOYAGER" POUR VOYAGER
+                        // CHANGER LA DESCRIPTION (TEXTURE) QUAND ON CLIQUE SUR UNE CASE
+
+                        //Si déplacement
                         if(players[actual].getMove()){
-                            players[actual].move_ship(event.mouseButton.x/20, event.mouseButton.y/20) ;
-                            //DEBUG AHERAGEFGAZE
-                            if(!players[actual].getMove()){
+                            if(event.mouseButton.x/20 < 32) players[actual].move_ship(event.mouseButton.x/20, event.mouseButton.y/20) ;
+                        }
+                        //Si fin du tour
+                        if(event.mouseButton.x > 640 && event.mouseButton.y > 590){
                                 actual = (actual+1)%4 ;
                                 players[actual].ucanmove() ;
                                 if(actual==0) t_sidebar_joueur.loadFromFile("img/bat1.png") ;
                                 if(actual==1) t_sidebar_joueur.loadFromFile("img/bat2.png") ;
                                 if(actual==2) t_sidebar_joueur.loadFromFile("img/bat3.png") ;
                                 if(actual==3) t_sidebar_joueur.loadFromFile("img/bat4.png") ;
-                            }
                         }
                     }
                 }
