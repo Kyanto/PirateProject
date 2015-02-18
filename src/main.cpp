@@ -72,17 +72,30 @@ int main(){
     //Création de la fenetre de jeu, chargement de la carte
     sf::RenderWindow window(sf::VideoMode(960, 640), "The Pirate Project");
 
-    //Affichage de l'accueil et de la sidebar
+    //Affichage de la partie principale
     sf::Texture t_content ;
     t_content.loadFromFile("img/menu.png") ;
     sf::Sprite s_content ;
     s_content.setTexture(t_content) ;
 
+    //Barre latérale
     sf::Texture t_sidebar ;
     t_sidebar.loadFromFile("img/sidebar.png") ;
     sf::Sprite s_sidebar ;
     s_sidebar.setTexture(t_sidebar) ;
     s_sidebar.setPosition(640,0) ;
+        //Joueur
+    sf::Texture t_sidebar_joueur ;
+    t_sidebar_joueur.loadFromFile("img/bat1.png") ;
+    sf::Sprite s_sidebar_joueur ;
+    s_sidebar_joueur.setTexture(t_sidebar_joueur) ;
+    s_sidebar_joueur.setPosition(790,185) ;
+        //Description des cases
+    sf::Texture t_sidecase ;
+    t_sidecase.loadFromFile("img/mer.png") ;
+    sf::Sprite s_sidecase ;
+    s_sidecase.setTexture(t_sidecase) ;
+    s_sidecase.setPosition(640,276) ;
 
     //Initialisation des 4 joueurs
     player players[4] = {init(0), init(1), init(2), init(3)} ;
@@ -113,6 +126,10 @@ int main(){
                             if(!players[actual].getMove()){
                                 actual = (actual+1)%4 ;
                                 players[actual].ucanmove() ;
+                                if(actual==0) t_sidebar_joueur.loadFromFile("img/bat1.png") ;
+                                if(actual==1) t_sidebar_joueur.loadFromFile("img/bat2.png") ;
+                                if(actual==2) t_sidebar_joueur.loadFromFile("img/bat3.png") ;
+                                if(actual==3) t_sidebar_joueur.loadFromFile("img/bat4.png") ;
                             }
                         }
                     }
@@ -131,6 +148,8 @@ int main(){
             for(int i=0; i<4; i++){
                 window.draw(players[i].getSprite()) ;
             }
+            window.draw(s_sidebar_joueur) ;
+            window.draw(s_sidecase) ;
         }
         window.display();
     }

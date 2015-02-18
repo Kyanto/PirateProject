@@ -43,13 +43,16 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="include/interface.hpp" />
+		<Unit filename="include/canon.hpp" />
+		<Unit filename="include/main.hpp" />
 		<Unit filename="include/player.hpp" />
 		<Unit filename="include/ship.hpp" />
-		<Unit filename="src/interface.cpp" />
+		<Unit filename="include/voile.hpp" />
+		<Unit filename="src/canon.cpp" />
 		<Unit filename="src/main.cpp" />
 		<Unit filename="src/player.cpp" />
 		<Unit filename="src/ship.cpp" />
+		<Unit filename="src/voile.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
