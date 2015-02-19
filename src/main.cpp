@@ -73,7 +73,7 @@ int main(){
     cible cibled(&Sidebar) ;
 
     //Création de la fenetre de jeu, chargement de la carte
-    sf::RenderWindow window(sf::VideoMode(960, 640), "The Pirate Project");
+    sf::RenderWindow window(sf::VideoMode(960, 640), "The Pirate Project", sf::Style::Titlebar | sf::Style::Close);
 
     //Affichage de la partie principale
     sf::Texture t_content ;
@@ -108,7 +108,7 @@ int main(){
                         if(event.mouseButton.x/20 < 32){
                             cibled.change(map[event.mouseButton.y/20][event.mouseButton.x/20], event.mouseButton.x/20, event.mouseButton.y/20) ;
                         }
-                        //Si déplacement Coordonnées bouton voyage : 106/207-187/241
+                        //Si déplacement Coordonnées bouton voyage : 106/207-187/241 (x+640)
                         if(players[actual].getMove() && event.mouseButton.x>746 && event.mouseButton.x<827 && event.mouseButton.y>207 && event.mouseButton.y<241){
                             players[actual].move_ship(cibled) ;
                         }
@@ -129,11 +129,12 @@ int main(){
         //Rafraichissement de l'écran
         window.clear();
         window.draw(s_content);
-        window.draw(Sidebar.getSprite('M'));
         if(play){
             for(int i=0; i<4; i++){
                 window.draw(players[i].getSprite()) ;
             }
+            //Sidebar.draw ?
+            window.draw(Sidebar.getSprite('M'));
             window.draw(Sidebar.getSprite('P')) ;
             window.draw(Sidebar.getSprite('C')) ;
             window.draw(cibled.getSprite()) ;

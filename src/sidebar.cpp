@@ -30,6 +30,7 @@ void sidebar::changeCase(int type){
     if(type==1) m_t_case.loadFromFile("img/villeP.png") ;
     if(type==2) m_t_case.loadFromFile("img/villeM.png") ;
     if(type==3) m_t_case.loadFromFile("img/villeG.png") ;
-    //if(type==4) m_t_case.loadFromFile("img/tourbillon.png") ;
+    if(type==4) m_t_case.loadFromFile("img/tourb.png") ;
     if(type==5) m_t_case.loadFromFile("img/ile.png") ;
+    if(type==6) m_t_case.loadFromFile("img/epic.png") ;
 }
