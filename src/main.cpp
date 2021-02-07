@@ -1,4 +1,9 @@
-#include "main.hpp"
+#include <iostream>
+#include <SFML/Graphics.hpp>
+
+#include "player.hpp"
+#include "ship.hpp"
+#include "cible.hpp"
 
 player init(int i){
 
@@ -77,7 +82,7 @@ int main(){
 
     //Affichage de la partie principale
     sf::Texture t_content ;
-    t_content.loadFromFile("img/menu.png") ;
+    t_content.loadFromFile("assets/img/menu.png") ;
     sf::Sprite s_content ;
     s_content.setTexture(t_content) ;
 
@@ -100,7 +105,7 @@ int main(){
             case sf::Event::MouseButtonReleased :
                 if(event.mouseButton.button == sf::Mouse::Left){
                     if(!play){
-                        t_content.loadFromFile("img/map.png") ;
+                        t_content.loadFromFile("assets/img/map.png") ;
                         s_content.setTexture(t_content) ;
                         play = true ;
                     }else{
